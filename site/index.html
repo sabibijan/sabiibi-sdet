@@ -553,7 +553,7 @@
   <div class="pkg-grid">
     <div class="pkg">
       <span class="pkg-name">The Archetype Edit</span>
-      <div class="price">$150</div>
+      <div class="price">$300</div>
       <p class="pkg-tagline">Discover your archetype. Learn how to dress it.</p>
       <ul>
         <li>Photo-based archetype assessment</li>
@@ -562,11 +562,11 @@
         <li>Custom mood board</li>
         <li>1 round of feedback</li>
       </ul>
-      <a class="btn btn-ghost" href="#contact" data-book="archetypeEdit">Book · $150</a>
+      <a class="btn btn-ghost" href="#contact" data-book="archetypeEdit">Book · $300</a>
     </div>
     <div class="pkg featured">
       <span class="pkg-name">The Signature Styling</span>
-      <div class="price">$500</div>
+      <div class="price">$900</div>
       <p class="pkg-tagline">Your archetype, translated into real outfits.</p>
       <ul>
         <li>Everything in The Archetype Edit</li>
@@ -576,11 +576,11 @@
         <li>Closet cross-check on 5–10 pieces you own</li>
         <li>2 rounds of revisions</li>
       </ul>
-      <a class="btn btn-solid" href="#contact" data-book="signatureStyling">Book · $500</a>
+      <a class="btn btn-solid" href="#contact" data-book="signatureStyling">Book · $900</a>
     </div>
     <div class="pkg">
       <span class="pkg-name">The Full Transformation</span>
-      <div class="price">$1,000</div>
+      <div class="price">$2,000</div>
       <p class="pkg-tagline">A complete wardrobe strategy, shopped with you.</p>
       <ul>
         <li>Everything in The Signature Styling</li>
@@ -590,7 +590,7 @@
         <li>60-minute strategy session</li>
         <li>2 weeks of email support after delivery</li>
       </ul>
-      <a class="btn btn-ghost" href="#contact" data-book="fullTransformation">Book · $1,000</a>
+      <a class="btn btn-ghost" href="#contact" data-book="fullTransformation">Book · $2,000</a>
     </div>
   </div>
 </section>
@@ -637,15 +637,15 @@
 
   <div class="book-options">
     <a class="book-option" href="#packages" data-book="archetypeEdit">
-      <span class="p-name">Archetype Edit</span><span class="p-price">$150</span>
+      <span class="p-name">Archetype Edit</span><span class="p-price">$300</span>
       <span class="p-flow">Pay → Questionnaire</span>
     </a>
     <a class="book-option featured" href="#packages" data-book="signatureStyling">
-      <span class="p-name">Signature Styling</span><span class="p-price">$500</span>
+      <span class="p-name">Signature Styling</span><span class="p-price">$900</span>
       <span class="p-flow">Pay → Questionnaire → 30-min Zoom</span>
     </a>
     <a class="book-option" href="#packages" data-book="fullTransformation">
-      <span class="p-name">Full Transformation</span><span class="p-price">$1,000</span>
+      <span class="p-name">Full Transformation</span><span class="p-price">$2,000</span>
       <span class="p-flow">Pay → Questionnaire → 60-min Zoom</span>
     </a>
   </div>
@@ -708,21 +708,11 @@
      (Dubsado → Templates/Forms → your proposal → Share → Direct link)
      Leave a link empty ('') and that button just scrolls to #packages.
      ========================================================= */
-  // Real checkout pages (production)
-  const PROD_LINKS = {
-    archetypeEdit:      'https://hello.dubsado.com/public/form/view/6ab92920a2c03493f789dbe5',  // $150
-    signatureStyling:   'https://hello.dubsado.com/public/form/view/6ab92e28a2c03493f789e4a8',  // $500
-    fullTransformation: 'https://hello.dubsado.com/public/form/view/6ab92f2ca2c03493f789e765'   // $1,000
+  const BOOKING_LINKS = {
+    archetypeEdit:      'https://hello.dubsado.com/public/form/view/6ab92920a2c03493f789dbe5',  // $300
+    signatureStyling:   'https://hello.dubsado.com/public/form/view/6ab92e28a2c03493f789e4a8',  // $900
+    fullTransformation: 'https://hello.dubsado.com/public/form/view/6ab92f2ca2c03493f789e765'   // $2,000
   };
-  // $1 test copies of the checkout pages, used only on the QA site
-  const QA_LINKS = {
-    archetypeEdit:      'https://hello.dubsado.com/public/form/view/REPLACE_WITH_QA_ARCHETYPE_EDIT_ID',
-    signatureStyling:   'https://hello.dubsado.com/public/form/view/REPLACE_WITH_QA_SIGNATURE_STYLING_ID',
-    fullTransformation: 'https://hello.dubsado.com/public/form/view/REPLACE_WITH_QA_FULL_TRANSFORMATION_ID'
-  };
-  // The QA site lives at develop.<project>.pages.dev (or qa.yourdomain.com)
-  const IS_QA = /^(develop|qa)\./.test(location.hostname);
-  const BOOKING_LINKS = IS_QA ? QA_LINKS : PROD_LINKS;
   document.querySelectorAll('[data-book]').forEach(function(el){
     const url = BOOKING_LINKS[el.getAttribute('data-book')];
     if (url) { el.setAttribute('href', url); el.setAttribute('rel', 'noopener'); }
